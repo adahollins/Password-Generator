@@ -94,20 +94,27 @@ function getPasswordOptions() {
   if (characterLengthEvent >= 8 || characterLengthEvent <= 124) {
       function getSpecialCharacter() {
       var specialCharactersEvent = confirm("Would you like Special Characters in your password?");
-        if (specialCharactersEvent == true || specialCharactersEvent == false) {
-          function getNumericCharacter() {
-            var numericCharactersEvent = confirm("Would you like Numeric Characters in your password?")
-            if (numericCharactersEvent == true || numericCharactersEvent == false) {
-              function getLowerCaseCharacters() {
-
-              }
-          }
-        }
-      } getNumericCharacter()
+      if (specialCharactersEvent == true || specialCharactersEvent == false) {
+        function getNumericCharacter() {
+          var numericCharactersEvent = confirm("Would you like Numeric Characters in your password?");
+          if (numericCharactersEvent == true || numericCharactersEvent == false) {
+            function getLowerCharacter() {
+              var lowerCharactersEvent = confirm("Would you like Lower Case Characters in your password?");
+              if (lowerCharactersEvent == true || lowerCharactersEvent == false) {
+                function getUpperCharacter() {
+                  var upperCharactersEvent = confirm("Would you like Upper Case Characters in your password?");
+                  if (upperCharactersEvent == true || upperCCharactersEvent == false)
+                  return alert("Password Completed")
+                }
+              } getUpperCharacter()
+            }
+          } getLowerCharacter()
+        } getNumericCharacter()
+      }
     } getSpecialCharacter()
   } else {
     return alert("Try another number")
-  }
+  };
 };
 
 // Function for getting a random element from an array
