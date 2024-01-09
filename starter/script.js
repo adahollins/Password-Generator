@@ -90,8 +90,21 @@ var upperCasedCharacters = [
 
 // Function to prompt user for password options
 function getPasswordOptions() {
-  var characterLength = prompt("Enter a number between 8 and 124");
-  if (characterLength >= 8 || characterLength <= 124) {
+  var characterLengthEvent = prompt("Enter a number between 8 and 124");
+  if (characterLengthEvent >= 8 || characterLengthEvent <= 124) {
+      function getSpecialCharacter() {
+      var specialCharactersEvent = confirm("Would you like Special Characters in your password?");
+        if (specialCharactersEvent == true || specialCharactersEvent == false) {
+          function getNumericCharacter() {
+            var numericCharactersEvent = confirm("Would you like Numeric Characters in your password?")
+            if (numericCharactersEvent == true || numericCharactersEvent == false) {
+              function getLowerCaseCharacters() {
+
+              }
+          }
+        }
+      } getNumericCharacter()
+    } getSpecialCharacter()
   } else {
     return alert("Try another number")
   }
