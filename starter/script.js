@@ -90,8 +90,8 @@ var upperCasedCharacters = [
 
 // Function to prompt user for password options
 function getPasswordOptions() {
-  var characterLengthEvent = prompt("Enter a number between 8 and 124");
-  if (characterLengthEvent >= 8 || characterLengthEvent <= 124) {
+  var characterLengthEvent = prompt("Enter a number between 8 and 124")
+  if (characterLengthEvent >= 8 || i <= 124) {
       function getSpecialCharacter() {
       var specialCharactersEvent = confirm("Would you like Special Characters in your password?");
       if (specialCharactersEvent == true || specialCharactersEvent == false) {
@@ -103,7 +103,7 @@ function getPasswordOptions() {
               if (lowerCharactersEvent == true || lowerCharactersEvent == false) {
                 function getUpperCharacter() {
                   var upperCharactersEvent = confirm("Would you like Upper Case Characters in your password?");
-                  if (upperCharactersEvent == true || upperCCharactersEvent == false)
+                  if (upperCharactersEvent == true || upperCharactersEvent == false)
                   return alert("Password Completed")
                 }
               } getUpperCharacter()
@@ -114,8 +114,10 @@ function getPasswordOptions() {
     } getSpecialCharacter()
   } else {
     return alert("Try another number")
-  };
+  }
 };
+
+getPasswordOptions()
 
 // Function for getting a random element from an array
 function getRandom(arr) {
@@ -124,8 +126,8 @@ function getRandom(arr) {
 
 // Function to generate password with user input
 function generatePassword() {
-  return getPasswordOptions();
-}
+  return getRandom(specialCharacters) + getRandom(numericCharacters) + getRandom(lowerCasedCharacters) + getRandom(upperCasedCharacters)
+};
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
