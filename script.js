@@ -90,21 +90,27 @@ var upperCasedCharacters = [
 
 // Function to prompt user for password options
 function getPasswordOptions() {
+  var chosen = [];
   var characterLengthEvent = prompt("Enter a number between 8 and 124")
   if (characterLengthEvent >= 8 || i <= 124) {
+    chosen.push(characterLengthEvent)
       function getSpecialCharacter() {
       var specialCharactersEvent = confirm("Would you like Special Characters in your password?");
       if (specialCharactersEvent == true || specialCharactersEvent == false) {
+        chosen.push(specialCharactersEvent)
         function getNumericCharacter() {
           var numericCharactersEvent = confirm("Would you like Numeric Characters in your password?");
           if (numericCharactersEvent == true || numericCharactersEvent == false) {
+            chosen.push(numericCharactersEvent)
             function getLowerCharacter() {
               var lowerCharactersEvent = confirm("Would you like Lower Case Characters in your password?");
               if (lowerCharactersEvent == true || lowerCharactersEvent == false) {
+                chosen.push(lowerCharactersEvent)
                 function getUpperCharacter() {
                   var upperCharactersEvent = confirm("Would you like Upper Case Characters in your password?");
-                  if (upperCharactersEvent == true || upperCharactersEvent == false)
-                  return alert("Password Completed")
+                  if (upperCharactersEvent == true || upperCharactersEvent == false) {
+                    chosen.push(upperCharactersEvent)
+                  }
                 }
               } getUpperCharacter()
             }
@@ -112,21 +118,22 @@ function getPasswordOptions() {
         } getNumericCharacter()
       }
     } getSpecialCharacter()
+    console.log(chosen)
+    getRandom(chosen)
   } else {
     return alert("Try another number")
   }
 };
 
-getPasswordOptions()
-
 // Function for getting a random element from an array
 function getRandom(arr) {
+  console.log(arr)
   return arr[Math.floor(Math.random()*arr.length)];
 }
 
 // Function to generate password with user input
 function generatePassword() {
-  return getRandom(specialCharacters) + getRandom(numericCharacters) + getRandom(lowerCasedCharacters) + getRandom(upperCasedCharacters)
+  return getPasswordOptions()
 };
 
 // Get references to the #generate element
