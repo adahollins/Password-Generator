@@ -118,7 +118,7 @@ function getPasswordOptions() {
         } getNumericCharacter()
       }
     } getSpecialCharacter()
-    console.log(chosen)
+    console.log(getRandom(chosen))
     getRandom(chosen)
   } else {
     return alert("Try another number")
@@ -127,9 +127,20 @@ function getPasswordOptions() {
 
 // Function for getting a random element from an array
 function getRandom(arr) {
-  console.log(arr)
-  return arr[Math.floor(Math.random()*arr.length)];
+  for (var i = 0; i <= arr[0]; i++) {
+  function randomiseInput() {
+    if (arr[1] == true) {
+    return specialCharacters[Math.floor(Math.random()*specialCharacters.length)]
+  } else if (arr[2] == true) {
+    return numericCharacters[Math.floor(Math.random()*numericCharacters.length)]
+  } else if (arr[3] == true) {
+    return lowerCasedCharacters[Math.floor(Math.random()*lowerCasedCharacters.length)]
+  } else if (arr[4] == true) {
+    return upperCasedCharacters[Math.floor(Math.random()*upperCasedCharacters.length)]
+  }
+} randomiseInput()
 }
+};
 
 // Function to generate password with user input
 function generatePassword() {
