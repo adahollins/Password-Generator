@@ -96,20 +96,20 @@ function getPasswordOptions() {
     chosen.push(characterLengthEvent)
       function getSpecialCharacter() {
       var specialCharactersEvent = confirm("Would you like Special Characters in your password?");
-      if (specialCharactersEvent == true || specialCharactersEvent == false) {
-        chosen.push(specialCharactersEvent)
+      if (specialCharactersEvent ==  true || specialCharactersEvent == false) {
+        chosen.push("specialchar")
         function getNumericCharacter() {
           var numericCharactersEvent = confirm("Would you like Numeric Characters in your password?");
           if (numericCharactersEvent == true || numericCharactersEvent == false) {
-            chosen.push(numericCharactersEvent)
+            chosen.push("numericchar")
             function getLowerCharacter() {
               var lowerCharactersEvent = confirm("Would you like Lower Case Characters in your password?");
               if (lowerCharactersEvent == true || lowerCharactersEvent == false) {
-                chosen.push(lowerCharactersEvent)
+                chosen.push("lowerchar")
                 function getUpperCharacter() {
                   var upperCharactersEvent = confirm("Would you like Upper Case Characters in your password?");
                   if (upperCharactersEvent == true || upperCharactersEvent == false) {
-                    chosen.push(upperCharactersEvent)
+                    chosen.push("upperchar")
                   }
                 }
               } getUpperCharacter()
@@ -120,6 +120,7 @@ function getPasswordOptions() {
     } getSpecialCharacter()
     console.log(getRandom(chosen))
     getRandom(chosen)
+    Math.floor(Math.random()*specialCharacters.length)
   } else {
     return alert("Try another number")
   }
@@ -127,18 +128,19 @@ function getPasswordOptions() {
 
 // Function for getting a random element from an array
 function getRandom(arr) {
-  for (var i = 0; i <= arr[0]; i++) {
-  function randomiseInput() {
-    if (arr[1] == true) {
-    return specialCharacters[Math.floor(Math.random()*specialCharacters.length)]
-  } else if (arr[2] == true) {
-    return numericCharacters[Math.floor(Math.random()*numericCharacters.length)]
-  } else if (arr[3] == true) {
-    return lowerCasedCharacters[Math.floor(Math.random()*lowerCasedCharacters.length)]
-  } else if (arr[4] == true) {
-    return upperCasedCharacters[Math.floor(Math.random()*upperCasedCharacters.length)]
+  let dupa = "";
+  for (let i = 1; i < arr[0]; i++) {
+  if (arr[i] == "specialchar") {
+    dupa += specialCharacters
+  } else if (arr[i] == "numericchar") {
+    dupa += numericCharacters
+  } else if (arr[i] == "lowerchar") {
+    dupa += lowerCasedCharacters
+  } else if (arr[i] == "upperchar") {
+    dupa += upperCasedCharacters
+  } else {
+    return dupa;
   }
-} randomiseInput()
 }
 };
 
