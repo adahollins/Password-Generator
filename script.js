@@ -96,30 +96,38 @@ function getPasswordOptions() {
     chosen.push(characterLengthEvent)
       function getSpecialCharacter() {
       var specialCharactersEvent = confirm("Would you like Special Characters in your password?");
-      if (specialCharactersEvent ==  true || specialCharactersEvent == false) {
-        chosen.push("specialchar")
+      if (specialCharactersEvent ==  true) {
+        chosen.push("specialChar")
         function getNumericCharacter() {
           var numericCharactersEvent = confirm("Would you like Numeric Characters in your password?");
-          if (numericCharactersEvent == true || numericCharactersEvent == false) {
-            chosen.push("numericchar")
+          if (numericCharactersEvent == true) {
+            chosen.push("numericChar")
             function getLowerCharacter() {
               var lowerCharactersEvent = confirm("Would you like Lower Case Characters in your password?");
-              if (lowerCharactersEvent == true || lowerCharactersEvent == false) {
-                chosen.push("lowerchar")
+              if (lowerCharactersEvent == true) {
+                chosen.push("lowerChar")
                 function getUpperCharacter() {
                   var upperCharactersEvent = confirm("Would you like Upper Case Characters in your password?");
-                  if (upperCharactersEvent == true || upperCharactersEvent == false) {
-                    chosen.push("upperchar")
+                  if (upperCharactersEvent == true) {
+                    chosen.push("upperChar")
+                  } else if (upperCharactersEvent == false) {
+                    chosen.push("false")
                   }
-                }
-              } getUpperCharacter()
-            }
-          } getLowerCharacter()
-        } getNumericCharacter()
+                }; getUpperCharacter()
+              } else if (lowerCharactersEvent == false) {
+                chosen.push("false")
+              }
+            }; getLowerCharacter()
+          } else if (numericCharactersEvent == false) {
+            chosen.push("false")
+          }
+        }; getNumericCharacter()
+      } else if (specialCharactersEvent == false) {
+        chosen.push("false")
       }
-    } getSpecialCharacter()
-    console.log(getRandom(chosen))
+    }; getSpecialCharacter()
     getRandom(chosen)
+    console.log(getRandom(chosen))
     Math.floor(Math.random()*specialCharacters.length)
   } else {
     return alert("Try another number")
@@ -128,18 +136,18 @@ function getPasswordOptions() {
 
 // Function for getting a random element from an array
 function getRandom(arr) {
-  let dupa = "";
+  let randomisedArr = "";
   for (let i = 1; i < arr[0]; i++) {
-  if (arr[i] == "specialchar") {
-    dupa += specialCharacters
-  } else if (arr[i] == "numericchar") {
-    dupa += numericCharacters
-  } else if (arr[i] == "lowerchar") {
-    dupa += lowerCasedCharacters
-  } else if (arr[i] == "upperchar") {
-    dupa += upperCasedCharacters
+  if (arr[i] == "specialChar") {
+    randomisedArr += specialCharacters
+  } else if (arr[i] == "numericChar") {
+    randomisedArr += numericCharacters
+  } else if (arr[i] == "lowerChar") {
+    randomisedArr += lowerCasedCharacters
+  } else if (arr[i] == "upperChar") {
+    randomisedArr += upperCasedCharacters
   } else {
-    return dupa;
+    return randomisedArr;
   }
 }
 };
